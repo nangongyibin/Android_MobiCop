@@ -1,6 +1,71 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@mipmap/blue_bkg">
+
+        <ImageView
+            android:id="@+id/iv_logo"
+            android:layout_width="@dimen/dp_80"
+            android:layout_height="@dimen/dp_80"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="@dimen/dp_25"
+            android:layout_marginLeft="@dimen/dp_25"
+            android:background="@drawable/mobicopicon"
+            android:contentDescription="图标" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toEndOf="@id/iv_logo"
+            android:layout_toRightOf="@id/iv_logo"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="南宫燚滨手机卫士"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/sp_18" />
+
+            <com.ngyb.mobicop.view.FocusTextView
+                android:id="@+id/tv_des"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_5"
+                android:ellipsize="marquee"
+                android:marqueeRepeatLimit="marquee_forever"
+                android:singleLine="true"
+                android:text="南宫燚滨手机卫士，保护手机安全，防止病毒的危害http://www.nangongyibin.com/"
+                android:textColor="@android:color/holo_red_light" />
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/iv_setting"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_margin="@dimen/dp_5"
+            android:background="@drawable/selector_setting_btn_bg"
+            android:contentDescription="设置"
+            android:padding="@dimen/dp_5"
+            android:src="@drawable/setting" />
+    </RelativeLayout>
+
+    <GridView
+        android:id="@+id/gv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="@dimen/dp_5"
+        android:horizontalSpacing="@dimen/dp_5"
+        android:numColumns="2"
+        android:verticalSpacing="@dimen/dp_5" />
 </LinearLayout>

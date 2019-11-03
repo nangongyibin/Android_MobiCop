@@ -71,7 +71,6 @@ public class SplashActivity extends BaseMvpActivity<SplashPresenter> implements 
             intent.putExtra("duplicate", true);
             ComponentName componentName = new ComponentName(this.getPackageName(), "." + this.getLocalClassName());
             Intent shortCutIntent = new Intent(Intent.ACTION_MAIN);
-            shortCutIntent.putExtra("快捷方式参数", "快捷方式参数值");
             shortCutIntent.setComponent(componentName);
             intent.putExtra(Intent.EXTRA_SHORTCUT_INTENT, shortCutIntent);
             Intent.ShortcutIconResource shortcutIconResource = Intent.ShortcutIconResource.fromContext(this, R.drawable.mobicopicon);

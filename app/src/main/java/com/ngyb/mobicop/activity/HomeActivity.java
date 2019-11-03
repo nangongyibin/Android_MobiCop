@@ -1,6 +1,16 @@
 package com.ngyb.mobicop.activity;
 
+import android.animation.ObjectAnimator;
+import android.animation.ValueAnimator;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.GridView;
+import android.widget.ImageView;
+
 import com.ngyb.mobicop.R;
+import com.ngyb.mobicop.adapter.GridAdapter;
+import com.ngyb.mobicop.contract.HomeContract;
+import com.ngyb.mobicop.presenter.HomePresenter;
 import com.ngyb.mobicop.view.base.BaseMvpActivity;
 
 /**
@@ -9,7 +19,12 @@ import com.ngyb.mobicop.view.base.BaseMvpActivity;
  * 邮箱：nangongyibin@gmail.com
  * 日期：2019/11/1 11:01
  */
-public class HomeActivity extends BaseMvpActivity {
+public class HomeActivity extends BaseMvpActivity<HomePresenter> implements HomeContract.View, View.OnClickListener {
+
+    private ImageView ivLogo;
+    private GridView gv;
+    private ImageView ivSetting;
+
     @Override
     public int getLayoutId() {
         return R.layout.activity_home;
@@ -17,7 +32,51 @@ public class HomeActivity extends BaseMvpActivity {
 
     @Override
     public void init() {
+        initView();
+        initAdapter();
+        initAnimation();
+        initListener();
+    }
 
+    private void initAdapter() {
+        GridAdapter gridAdapter = new GridAdapter(this);
+        gv.setAdapter(gridAdapter);
+    }
+
+    private void initListener() {
+        ivSetting.setOnClickListener(this);
+        gv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                switch (position) {
+                    case 0:
+                        break;
+                    case 1:
+                        break;
+                    case 2:
+                        break;
+                    case 3:
+                        break;
+                }
+            }
+        });
+    }
+
+    private void initView() {
+        ivLogo = findViewById(R.id.iv_logo);
+        gv = findViewById(R.id.gv);
+        ivSetting = findViewById(R.id.iv_setting);
+    }
+
+    /**
+     * 初始化动画
+     */
+    private void initAnimation() {
+        ObjectAnimator rotationY = ObjectAnimator.ofFloat(ivLogo, "rotationY", 0f, 360f);
+        rotationY.setRepeatCount(ObjectAnimator.INFINITE);
+        rotationY.setRepeatMode(ValueAnimator.REVERSE);
+        rotationY.setDuration(2000);
+        rotationY.start();
     }
 
     @Override
@@ -38,5 +97,14 @@ public class HomeActivity extends BaseMvpActivity {
     @Override
     public void onSuccess() {
 
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.iv_setting:
+                //跳转到设置页面
+                break;
+        }
     }
 }
