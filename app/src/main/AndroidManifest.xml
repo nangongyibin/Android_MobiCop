@@ -43,9 +43,13 @@
         <activity
             android:name=".activity.CommonToolActivity"
             android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.QueryAddressActivity"
+            android:screenOrientation="portrait" />
 
         <service android:name=".service.ProtectService" />
         <service android:name=".service.AddressService" />
+        <service android:name=".service.DogService" />
     </application>
 
 </manifest>
