@@ -2,7 +2,8 @@ package com.ngyb.mobicop.contract;
 
 import android.content.Context;
 
-import com.ngyb.mobicop.view.base.BaseView;
+
+import com.ngyb.mvpbase.BaseView;
 
 import java.io.File;
 

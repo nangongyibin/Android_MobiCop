@@ -2,6 +2,7 @@ package com.ngyb.mobicop.activity;
 
 import android.animation.ObjectAnimator;
 import android.animation.ValueAnimator;
+import android.content.Intent;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.GridView;
@@ -11,7 +12,7 @@ import com.ngyb.mobicop.R;
 import com.ngyb.mobicop.adapter.GridAdapter;
 import com.ngyb.mobicop.contract.HomeContract;
 import com.ngyb.mobicop.presenter.HomePresenter;
-import com.ngyb.mobicop.view.base.BaseMvpActivity;
+import com.ngyb.mvpbase.BaseMvpActivity;
 
 /**
  * 作者：南宫燚滨
@@ -50,6 +51,8 @@ public class HomeActivity extends BaseMvpActivity<HomePresenter> implements Home
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 switch (position) {
                     case 0:
+                        Intent intent = new Intent(HomeActivity.this, CommonToolActivity.class);
+                        startActivity(intent);
                         break;
                     case 1:
                         break;
@@ -104,6 +107,8 @@ public class HomeActivity extends BaseMvpActivity<HomePresenter> implements Home
         switch (v.getId()) {
             case R.id.iv_setting:
                 //跳转到设置页面
+                Intent intent = new Intent(this, SettingActivity.class);
+                startActivity(intent);
                 break;
         }
     }

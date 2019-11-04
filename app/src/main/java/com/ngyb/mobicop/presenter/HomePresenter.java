@@ -2,7 +2,7 @@ package com.ngyb.mobicop.presenter;
 
 import com.ngyb.mobicop.contract.HomeContract;
 import com.ngyb.mobicop.model.HomeModel;
-import com.ngyb.mobicop.view.base.BasePresenter;
+import com.ngyb.mvpbase.BasePresenter;
 
 /**
  * 作者：南宫燚滨

@@ -20,10 +20,10 @@ import com.ngyb.mobicop.constant.Constant;
 import com.ngyb.mobicop.contract.SplashContract;
 import com.ngyb.mobicop.presenter.SplashPresenter;
 import com.ngyb.mobicop.service.ProtectService;
-import com.ngyb.mobicop.utils.AppUtils;
-import com.ngyb.mobicop.utils.CopyDBUtils;
-import com.ngyb.mobicop.utils.SharedPreferencesUtils;
-import com.ngyb.mobicop.view.base.BaseMvpActivity;
+import com.ngyb.mvpbase.BaseMvpActivity;
+import com.ngyb.utils.AppUtils;
+import com.ngyb.utils.CopyDBUtils;
+import com.ngyb.utils.SharedPreferencesUtils;
 
 import java.io.File;
 

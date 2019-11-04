@@ -17,6 +17,7 @@
     <uses-permission
         android:name="android.permission.PACKAGE_USAGE_STATS"
         tools:ignore="ProtectedPermissions" />
+
     <application
         android:allowBackup="true"
         android:icon="@drawable/mobicopicon"
@@ -36,8 +37,15 @@
         <activity
             android:name=".activity.HomeActivity"
             android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.SettingActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.CommonToolActivity"
+            android:screenOrientation="portrait" />
 
         <service android:name=".service.ProtectService" />
+        <service android:name=".service.AddressService" />
     </application>
 
 </manifest>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        style="@style/TitleStyle"
+        android:text="常用工具" />
+
+    <com.ngyb.settingsummary.SettingItemView
+        android:id="@+id/siv_query_phone_address"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_10"
+        android:background="@drawable/select_first_bg"
+        app:isToggle="false"
+        app:title="号码归属地查询" />
+
+    <com.ngyb.settingsummary.SettingItemView
+        android:id="@+id/siv_sms_backup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/select_middle_bg"
+        app:isToggle="false"
+        app:title="短信备份" />
+
+    <com.ngyb.settingsummary.SettingItemView
+        android:id="@+id/siv_sms_restore"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/select_last_bg"
+        app:isToggle="false"
+        app:title="短信还原" />
+
+    <com.ngyb.settingsummary.SettingItemView
+        android:id="@+id/siv_app_lock"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_20"
+        android:background="@drawable/select_first_bg"
+        app:isToggle="false"
+        app:title="程序锁" />
+
+    <com.ngyb.settingsummary.SettingItemView
+        android:id="@+id/siv_dog_service"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/select_last_bg"
+        app:isToggle="true"
+        app:title="电子狗服务" />
+</LinearLayout>

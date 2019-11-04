@@ -35,7 +35,7 @@
                 android:textColor="@android:color/white"
                 android:textSize="@dimen/sp_18" />
 
-            <com.ngyb.mobicop.view.FocusTextView
+            <com.ngyb.textviewsummary.FocusTextView
                 android:id="@+id/tv_des"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

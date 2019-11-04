@@ -6,13 +6,11 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Environment;
 import android.util.Log;
-import android.util.TimeUtils;
 
-import com.google.gson.JsonObject;
 import com.ngyb.mobicop.constant.Constant;
 import com.ngyb.mobicop.contract.SplashContract;
-import com.ngyb.mobicop.utils.StreamUtils;
-import com.ngyb.mobicop.view.base.BasePresenter;
+import com.ngyb.mvpbase.BasePresenter;
+import com.ngyb.utils.StreamUtils;
 
 
 import org.json.JSONException;
