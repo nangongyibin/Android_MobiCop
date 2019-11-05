@@ -66,12 +66,16 @@
             android:name=".activity.QueryAddressActivity"
             android:screenOrientation="portrait" />
 
-        <activity android:name=".activity.ComposeSmsActivity">
+        <activity
+            android:name=".activity.ComposeSmsActivity"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.SEND" />
                 <action android:name="android.intent.action.SENDTO" />
+
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
+
                 <data android:scheme="sms" />
                 <data android:scheme="smsto" />
                 <data android:scheme="mms" />
@@ -79,16 +83,21 @@
             </intent-filter>
         </activity>
 
+        <activity
+            android:name=".activity.LockActivity"
+            android:screenOrientation="portrait" />
+
         <service android:name=".service.ProtectService" />
         <service android:name=".service.AddressService" />
         <service android:name=".service.DogService" />
         <service
             android:name=".service.HeadlessSmsSendService"
-            android:permission="android.permission.SEND_RESPOND_VIA_MESSAGE"
-            android:exported="true" >
+            android:exported="true"
+            android:permission="android.permission.SEND_RESPOND_VIA_MESSAGE">
             <intent-filter>
                 <action android:name="android.intent.action.RESPOND_VIA_MESSAGE" />
                 <category android:name="android.intent.category.DEFAULT" />
+
                 <data android:scheme="sms" />
                 <data android:scheme="smsto" />
                 <data android:scheme="mms" />

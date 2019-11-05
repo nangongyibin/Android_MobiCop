@@ -3,9 +3,12 @@ package com.ngyb.mobicop.activity;
 import android.Manifest;
 import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
+import android.app.AppOpsManager;
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Build;
+import android.provider.Settings;
 import android.provider.Telephony;
 import android.view.View;
 import android.widget.Toast;
@@ -138,11 +141,27 @@ public class CommonToolActivity extends BaseMvpActivity<CommonToolPresenter> imp
                 break;
             //程序锁
             case R.id.siv_app_lock:
+                Intent intent1 = new Intent(this, LockActivity.class);
+                startActivity(intent1);
                 break;
             //电子狗
             case R.id.siv_dog_service:
+                if (!hasPermission()) {
+                    startActivityForResult(new Intent(Settings.ACTION_USAGE_ACCESS_SETTINGS),1101);
+                }else{
+                    serviceStartAndStop();
+                }
                 break;
         }
+    }
+
+    private boolean hasPermission() {
+        AppOpsManager appOps = (AppOpsManager) getSystemService(Context.APP_OPS_SERVICE);
+        int mode = 0;
+        if (Build.VERSION.SDK_INT > Build.VERSION_CODES.KITKAT) {
+            mode = appOps.unsafeCheckOpNoThrow(AppOpsManager.OPSTR_GET_USAGE_STATS, android.os.Process.myUid(), getPackageName());
+        }
+        return mode == AppOpsManager.MODE_ALLOWED;
     }
 
     @TargetApi(Build.VERSION_CODES.KITKAT)
@@ -177,8 +196,19 @@ public class CommonToolActivity extends BaseMvpActivity<CommonToolPresenter> imp
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         if (requestCode == 9127) {
             smsRestore();
+        }else if (requestCode ==1101){
+            serviceStartAndStop();
         }
         super.onActivityResult(requestCode, resultCode, data);
+    }
+
+    private void serviceStartAndStop() {
+        sivDogService.reverseState();
+        if (sivDogService.getOpenState()) {
+            startService(new Intent(this, DogService.class));
+        } else {
+            stopService(new Intent(this, DogService.class));
+        }
     }
 
     private void smsRestore() {
