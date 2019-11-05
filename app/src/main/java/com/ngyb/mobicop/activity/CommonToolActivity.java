@@ -1,7 +1,17 @@
 package com.ngyb.mobicop.activity;
 
+import android.Manifest;
+import android.annotation.SuppressLint;
+import android.annotation.TargetApi;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.os.Build;
+import android.provider.Telephony;
 import android.view.View;
+import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 import com.ngyb.mobicop.R;
 import com.ngyb.mobicop.contract.CommonToolContract;
@@ -11,12 +21,15 @@ import com.ngyb.mvpbase.BaseMvpActivity;
 import com.ngyb.settingsummary.SettingItemView;
 import com.ngyb.utils.ServiceUtils;
 
+import es.dmoral.toasty.Toasty;
+
 /**
  * 作者：南宫燚滨
  * 描述：
  * 邮箱：nangongyibin@gmail.com
  * 日期：2019/11/4 15:36
  */
+@SuppressLint("NewApi")
 public class CommonToolActivity extends BaseMvpActivity<CommonToolPresenter> implements CommonToolContract.View, View.OnClickListener {
 
     private SettingItemView sivQueryPhoneAddress;
@@ -25,6 +38,7 @@ public class CommonToolActivity extends BaseMvpActivity<CommonToolPresenter> imp
     private SettingItemView sivAppLock;
     private SettingItemView sivDogService;
     private ServiceUtils serviceUtils;
+    private CommonToolPresenter commonToolPresenter;
 
     @Override
     public int getLayoutId() {
@@ -46,6 +60,8 @@ public class CommonToolActivity extends BaseMvpActivity<CommonToolPresenter> imp
 
     private void initClass() {
         serviceUtils = new ServiceUtils();
+        commonToolPresenter = new CommonToolPresenter(this);
+        commonToolPresenter.attachView(this);
     }
 
     private void initListener() {
@@ -94,9 +110,31 @@ public class CommonToolActivity extends BaseMvpActivity<CommonToolPresenter> imp
                 break;
             //短信备份
             case R.id.siv_sms_backup:
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                    String[] permission = null;
+                    if (checkSelfPermission(Manifest.permission.READ_SMS) != PackageManager.PERMISSION_GRANTED) {
+                        if (checkSelfPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
+                            permission = new String[]{Manifest.permission.READ_SMS, Manifest.permission.WRITE_EXTERNAL_STORAGE};
+                        } else {
+                            permission = new String[]{Manifest.permission.READ_SMS};
+                        }
+                        if (permission.length == 2 && shouldShowRequestPermissionRationale(permission[1])) {
+                            Toasty.info(this, "请开通相关权限，否则无法正常使用本应用！", Toast.LENGTH_LONG).show();
+                        } else if (shouldShowRequestPermissionRationale(permission[0])) {
+                            Toasty.info(this, "请开通相关权限，否则无法正常使用本应用！", Toast.LENGTH_LONG).show();
+                        } else {
+                            requestPermissions(permission, 7219);
+                        }
+                    } else {
+                        backUp();
+                    }
+                } else {
+                    backUp();
+                }
                 break;
             //短信备份
             case R.id.siv_sms_restore:
+                setDefault(sivSmsRestore);
                 break;
             //程序锁
             case R.id.siv_app_lock:
@@ -104,6 +142,48 @@ public class CommonToolActivity extends BaseMvpActivity<CommonToolPresenter> imp
             //电子狗
             case R.id.siv_dog_service:
                 break;
+        }
+    }
+
+    @TargetApi(Build.VERSION_CODES.KITKAT)
+    private void setDefault(View view) {
+        Intent intent = new Intent(Telephony.Sms.Intents.ACTION_CHANGE_DEFAULT);
+        intent.putExtra(Telephony.Sms.Intents.EXTRA_PACKAGE_NAME, getPackageName());
+        startActivityForResult(intent, 9127);
+    }
+
+    private void backUp() {
+        if (commonToolPresenter != null && commonToolPresenter.isViewAttached()) {
+            commonToolPresenter.backUp();
+        }
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        if (requestCode == 7219) {
+            for (int i = 0; i < permissions.length; i++) {
+                String permission = permissions[i];
+                if (grantResults[i] != PackageManager.PERMISSION_GRANTED) {
+                    Toasty.info(this, "权限获取失败，短信备份失败！", Toast.LENGTH_LONG).show();
+                    return;
+                }
+            }
+            backUp();
+        }
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        if (requestCode == 9127) {
+            smsRestore();
+        }
+        super.onActivityResult(requestCode, resultCode, data);
+    }
+
+    private void smsRestore() {
+        if (commonToolPresenter != null && commonToolPresenter.isViewAttached()) {
+            commonToolPresenter.smsRestore();
         }
     }
 }

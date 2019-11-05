@@ -16,5 +16,8 @@ public interface CommonToolContract {
     }
 
     interface Presenter {
+        void backUp();
+
+        void smsRestore();
     }
 }
