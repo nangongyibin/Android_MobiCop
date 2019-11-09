@@ -65,7 +65,9 @@
         <activity
             android:name=".activity.QueryAddressActivity"
             android:screenOrientation="portrait" />
-
+        <activity
+            android:name=".activity.InterceptetActivity"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".activity.ComposeSmsActivity"
             android:screenOrientation="portrait">
