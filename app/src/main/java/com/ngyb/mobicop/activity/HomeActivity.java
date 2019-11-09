@@ -55,8 +55,12 @@ public class HomeActivity extends BaseMvpActivity<HomePresenter> implements Home
                         startActivity(intent);
                         break;
                     case 1:
+                        Intent intent1 = new Intent(HomeActivity.this, CommonToolActivity.class);
+                        startActivity(intent1);
                         break;
                     case 2:
+                        Intent intent2 = new Intent(HomeActivity.this, CommonToolActivity.class);
+                        startActivity(intent2);
                         break;
                     case 3:
                         break;

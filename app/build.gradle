@@ -40,6 +40,11 @@ dependencies {
     implementation 'com.github.nangongyibin7219:Android_MVPBase:1.0.1'
     implementation 'com.github.nangongyibin7219:Android_TextViewSummary:1.0.1'
     implementation 'com.github.nangongyibin7219:Android_SettingSummary:1.0.2'
-    implementation 'com.github.nangongyibin7219:Android_Utils:1.0.5'
+    implementation 'com.github.nangongyibin7219:Android_Utils:1.0.7'
     implementation 'com.github.nangongyibin7219:Android_DialogSummary:1.0.3'
+    //杀毒界面用到的第三方
+    implementation 'com.github.lzyzsd:circleprogress:1.2.1'
+
+    implementation 'se.emilsjolander:stickylistheaders:2.7.0'
+    implementation 'com.jaredrummler:android-processes:1.1.1'
 }
