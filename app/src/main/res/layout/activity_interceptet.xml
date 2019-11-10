@@ -6,7 +6,7 @@
 
     <TextView
         style="@style/TitleStyle"
-        android:text="锁屏界面" />
+        android:text="@string/spjm" />
 
     <ImageView
         android:id="@+id/iv_icon"
@@ -24,11 +24,11 @@
         android:id="@+id/et_psd"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="请输入密码" />
+        android:hint="@string/qsrmm" />
 
     <Button
         android:id="@+id/btn_ok"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="确定" />
+        android:text="@string/qd" />
 </LinearLayout>

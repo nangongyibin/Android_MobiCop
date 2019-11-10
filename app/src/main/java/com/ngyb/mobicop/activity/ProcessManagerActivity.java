@@ -1,7 +1,6 @@
 package com.ngyb.mobicop.activity;
 
 import android.Manifest;
-import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
@@ -15,7 +14,6 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.ListView;
 import android.widget.PopupWindow;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
@@ -23,10 +21,10 @@ import android.widget.SlidingDrawer;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.view.menu.MenuView;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
+import com.ngyb.itemsummary.ProcessItemView;
 import com.ngyb.mobicop.R;
 import com.ngyb.mobicop.adapter.ProcessManagerAdapter;
 import com.ngyb.mobicop.contract.ProcessManagerContract;
@@ -34,9 +32,6 @@ import com.ngyb.mobicop.presenter.ProcessManagerPresenter;
 import com.ngyb.mobicop.service.LockCleanService;
 import com.ngyb.mvpbase.BaseMvpActivity;
 import com.ngyb.settingsummary.SettingItemView;
-import com.ngyb.utils.bean.ProcessBean;
-
-import ngyb.item.ProcessItemView;
 import se.emilsjolander.stickylistheaders.StickyListHeadersListView;
 
 /**

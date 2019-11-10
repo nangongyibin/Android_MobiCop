@@ -7,12 +7,12 @@
 
     <TextView
         style="@style/TitleStyle"
-        android:text="手机杀毒" />
+        android:text="@string/sjsd" />
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="@dimen/dp_160"
-        android:background="#00a2ff">
+        android:background="@color/c_00a2ff">
 
         <RelativeLayout
             android:id="@+id/rl_scan"
@@ -25,8 +25,8 @@
                 android:layout_width="@dimen/dp_135"
                 android:layout_height="@dimen/dp_135"
                 android:layout_centerHorizontal="true"
-                android:background="#00a2ff"
-                custom:arc_bottom_text="扫描"
+                android:background="@color/c_00a2ff"
+                custom:arc_bottom_text="@string/sm"
                 custom:arc_stroke_width="@dimen/dp_8"
                 custom:arc_text_color="@android:color/white" />
 
@@ -63,6 +63,7 @@
             android:id="@+id/rl_scan_again"
             android:layout_width="wrap_content"
             android:layout_height="@dimen/dp_160"
+            android:layout_centerHorizontal="true"
             android:visibility="gone">
 
             <TextView
@@ -70,7 +71,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
-                android:text="手机是否安全"
+                android:text="@string/sjsfaq"
                 android:textColor="@android:color/white" />
 
             <Button
@@ -79,7 +80,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@id/tv_safe"
                 android:layout_centerHorizontal="true"
-                android:text="重新扫描" />
+                android:text="@string/cxsm" />
         </RelativeLayout>
     </RelativeLayout>
 

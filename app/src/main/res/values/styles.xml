@@ -22,7 +22,7 @@
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">@dimen/dp_45</item>
         <item name="android:textColor">@android:color/white</item>
-        <item name="android:background">#00a2ff</item>
+        <item name="android:background">@color/c_00a2ff</item>
     </style>
 
     <style name="PopupWindowAnimationStyle">

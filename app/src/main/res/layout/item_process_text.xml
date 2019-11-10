@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="#ccc"
+    android:background="@color/c_ccc"
     android:orientation="vertical"
     android:padding="@dimen/dp_5">
 
@@ -10,5 +10,5 @@
         android:id="@+id/tv_process_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textColor="#000" />
+        android:textColor="@color/c_000" />
 </LinearLayout>

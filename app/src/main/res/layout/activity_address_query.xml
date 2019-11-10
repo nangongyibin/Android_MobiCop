@@ -6,7 +6,7 @@
 
     <TextView
         style="@style/TitleStyle"
-        android:text="号码归属地查询" />
+        android:text="@string/hmgsdcx" />
 
     <EditText
         android:id="@+id/et_phone"
@@ -14,7 +14,7 @@
         android:layout_height="@dimen/dp_50"
         android:layout_margin="@dimen/dp_10"
         android:background="@drawable/shape_edit_text_bg"
-        android:hint="请输入电话号码" />
+        android:hint="@string/qsrsjhm" />
 
     <Button
         android:id="@+id/btn_query"
@@ -22,12 +22,11 @@
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/dp_10"
         android:background="@drawable/dg_btn_confirm_normal"
-        android:text="查询"
+        android:text="@string/cx"
         android:textColor="@android:color/white" />
 
     <TextView
         android:id="@+id/tv_result"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="" />
+        android:layout_height="wrap_content" />
 </LinearLayout>

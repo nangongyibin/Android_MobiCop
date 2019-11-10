@@ -11,7 +11,7 @@
 
         <TextView
             style="@style/TitleStyle"
-            android:text="进程管理" />
+            android:text="@string/jcgl" />
 
         <ImageView
             android:id="@+id/iv_clean"
@@ -20,18 +20,20 @@
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
             android:layout_marginRight="@dimen/dp_10"
-            android:background="@drawable/clean_normal" />
+            android:background="@drawable/clean_normal"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="@dimen/dp_10" />
     </RelativeLayout>
 
     <com.ngyb.itemsummary.ProcessItemView
         android:id="@+id/piv_process"
         android:layout_width="match_parent"
-        android:layout_height="warp_content" />
+        android:layout_height="wrap_content" />
 
     <com.ngyb.itemsummary.ProcessItemView
         android:id="@+id/piv_memory"
         android:layout_width="match_parent"
-        android:layout_height="warp_content"
+        android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/dp_1" />
 
     <LinearLayout
@@ -90,13 +92,13 @@
                     android:id="@+id/content"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="#fff"
+                    android:background="@color/c_fff"
                     android:orientation="vertical">
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="进程管理设置" />
+                        android:text="@string/jcglsz" />
 
                     <com.ngyb.settingsummary.SettingItemView
                         android:id="@+id/siv_show_sys"
@@ -104,7 +106,7 @@
                         android:layout_height="wrap_content"
                         android:background="@drawable/select_first_bg"
                         app:isToggle="true"
-                        app:title="显示系统进程" />
+                        app:title="@string/xsxtjc" />
 
                     <com.ngyb.settingsummary.SettingItemView
                         android:id="@+id/siv_lock_clean"
@@ -112,7 +114,7 @@
                         android:layout_height="wrap_content"
                         android:background="@drawable/select_last_bg"
                         app:isToggle="true"
-                        app:title="锁屏自动清理" />
+                        app:title="@string/spzdql" />
                 </LinearLayout>
             </SlidingDrawer>
         </RelativeLayout>
@@ -127,14 +129,14 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:text="全选" />
+                android:text="@string/qx" />
 
             <Button
                 android:id="@+id/btn_select_reverse"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:text="反选" />
+                android:text="@string/fx" />
         </LinearLayout>
     </LinearLayout>
 </LinearLayout>

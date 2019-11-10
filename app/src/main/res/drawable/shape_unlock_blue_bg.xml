@@ -4,8 +4,8 @@
     <corners
         android:bottomLeftRadius="@dimen/dp_5"
         android:topLeftRadius="@dimen/dp_5" />
-    <solid android:color="#8484ca" />
+    <solid android:color="@color/c_8484ca" />
     <stroke
         android:width="@dimen/dp_1"
-        android:color="#00f" />
+        android:color="@color/c_00f" />
 </shape>

@@ -13,13 +13,14 @@
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
         android:layout_toRightOf="@id/iv_icon"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:layout_toEndOf="@id/iv_icon">
 
         <TextView
             android:id="@+id/tv_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="#000"
+            android:textColor="@color/c_000"
             android:textSize="@dimen/sp_16" />
 
         <TextView
@@ -37,5 +38,6 @@
         android:background="@drawable/btn_check_bg"
         android:clickable="false"
         android:focusable="false"
-        android:focusableInTouchMode="false" />
+        android:focusableInTouchMode="false"
+        android:layout_alignParentEnd="true" />
 </RelativeLayout>

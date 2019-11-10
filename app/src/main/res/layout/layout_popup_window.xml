@@ -10,26 +10,26 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:drawableTop="@drawable/ic_uninstall"
-        android:text="卸载" />
+        android:text="@string/xz" />
 
     <TextView
         android:id="@+id/tv_open"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:drawableTop="@drawable/ic_open"
-        android:text="打开" />
+        android:text="@string/dk" />
 
     <TextView
         android:id="@+id/tv_share"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:drawableTop="@drawable/ic_open"
-        android:text="分享" />
+        android:text="@string/fxiang" />
 
     <TextView
         android:id="@+id/tv_info"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:drawableTop="@drawable/ic_info"
-        android:text="信息" />
+        android:text="@string/xx" />
 </LinearLayout>

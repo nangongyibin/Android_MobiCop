@@ -17,7 +17,7 @@
             android:layout_marginStart="@dimen/dp_25"
             android:layout_marginLeft="@dimen/dp_25"
             android:background="@drawable/mobicopicon"
-            android:contentDescription="图标" />
+            android:contentDescription="@string/tb" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -31,7 +31,7 @@
                 android:id="@+id/tv_title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="南宫燚滨手机卫士"
+                android:text="@string/ngybsjws"
                 android:textColor="@android:color/white"
                 android:textSize="@dimen/sp_18" />
 
@@ -43,7 +43,7 @@
                 android:ellipsize="marquee"
                 android:marqueeRepeatLimit="marquee_forever"
                 android:singleLine="true"
-                android:text="南宫燚滨手机卫士，保护手机安全，防止病毒的危害http://www.nangongyibin.com/"
+                android:text="@string/ngybsjwsbhsjaqfzbddwh"
                 android:textColor="@android:color/holo_red_light" />
         </LinearLayout>
 
@@ -55,7 +55,7 @@
             android:layout_alignParentRight="true"
             android:layout_margin="@dimen/dp_5"
             android:background="@drawable/selector_setting_btn_bg"
-            android:contentDescription="设置"
+            android:contentDescription="@string/sz"
             android:padding="@dimen/dp_5"
             android:src="@drawable/setting" />
     </RelativeLayout>

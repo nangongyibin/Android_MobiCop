@@ -5,15 +5,15 @@
     android:orientation="horizontal">
 
     <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="@dimen/dp_45"
+        android:layout_height="@dimen/dp_45"
         android:src="@drawable/mobicopicon" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_vertical"
-        android:text="手机卫士保护手机安全"
+        android:text="@string/sjwsbhsjaq"
         android:textColor="@android:color/black"
         android:textSize="@dimen/sp_12" />
 </LinearLayout>

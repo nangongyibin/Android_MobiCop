@@ -15,7 +15,7 @@ import com.ngyb.mobicop.activity.SplashActivity;
 
 /**
  * 作者：南宫燚滨
- * 描述：
+ * 描述： 通知
  * 邮箱：nangongyibin@gmail.com
  * 日期：2019/11/1 10:20
  */
