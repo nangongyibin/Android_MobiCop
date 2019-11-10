@@ -10,6 +10,7 @@ import android.content.pm.PackageManager;
 import android.os.Build;
 import android.provider.Settings;
 import android.provider.Telephony;
+import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
@@ -34,7 +35,7 @@ import es.dmoral.toasty.Toasty;
  */
 @SuppressLint("NewApi")
 public class CommonToolActivity extends BaseMvpActivity<CommonToolPresenter> implements CommonToolContract.View, View.OnClickListener {
-
+    private static final String TAG = "CommonToolActivity";
     private SettingItemView sivQueryPhoneAddress;
     private SettingItemView sivSmsBackUp;
     private SettingItemView sivSmsRestore;
@@ -146,10 +147,15 @@ public class CommonToolActivity extends BaseMvpActivity<CommonToolPresenter> imp
                 break;
             //电子狗
             case R.id.siv_dog_service:
-                if (!hasPermission()) {
-                    startActivityForResult(new Intent(Settings.ACTION_USAGE_ACCESS_SETTINGS),1101);
-                }else{
-                    serviceStartAndStop();
+                try {
+                    if (!hasPermission()) {
+                        startActivityForResult(new Intent(Settings.ACTION_USAGE_ACCESS_SETTINGS),1101);
+                    }else{
+                        serviceStartAndStop();
+                    }
+                } catch (Exception e) {
+                    Log.e(TAG, "onClick: "+e.getLocalizedMessage().toString() );
+                    e.printStackTrace();
                 }
                 break;
         }

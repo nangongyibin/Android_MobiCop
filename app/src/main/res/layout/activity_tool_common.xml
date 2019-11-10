@@ -16,7 +16,7 @@
         android:layout_marginTop="@dimen/dp_10"
         android:background="@drawable/select_first_bg"
         app:isToggle="false"
-        app:title="@string/hmgsdcx" />
+        app:title="号码归属地查询" />
 
     <com.ngyb.settingsummary.SettingItemView
         android:id="@+id/siv_sms_backup"
@@ -24,7 +24,7 @@
         android:layout_height="wrap_content"
         android:background="@drawable/select_middle_bg"
         app:isToggle="false"
-        app:title="@string/dxbf" />
+        app:title="短信备份" />
 
     <com.ngyb.settingsummary.SettingItemView
         android:id="@+id/siv_sms_restore"
@@ -32,7 +32,7 @@
         android:layout_height="wrap_content"
         android:background="@drawable/select_last_bg"
         app:isToggle="false"
-        app:title="@string/dxhy" />
+        app:title="短信还原" />
 
     <com.ngyb.settingsummary.SettingItemView
         android:id="@+id/siv_app_lock"
@@ -41,7 +41,7 @@
         android:layout_marginTop="@dimen/dp_20"
         android:background="@drawable/select_first_bg"
         app:isToggle="false"
-        app:title="@string/cxs" />
+        app:title="程序锁" />
 
     <com.ngyb.settingsummary.SettingItemView
         android:id="@+id/siv_dog_service"
@@ -49,5 +49,5 @@
         android:layout_height="wrap_content"
         android:background="@drawable/select_last_bg"
         app:isToggle="true"
-        app:title="@string/dzgfw" />
+        app:title="电子狗服务" />
 </LinearLayout>

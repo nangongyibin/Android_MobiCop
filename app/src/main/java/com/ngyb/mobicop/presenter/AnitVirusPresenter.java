@@ -10,6 +10,7 @@ import android.graphics.Matrix;
 import android.graphics.Paint;
 import android.graphics.drawable.Drawable;
 import android.os.AsyncTask;
+import android.util.Log;
 
 import com.ngyb.mobicop.adapter.ScanAdapter;
 import com.ngyb.mobicop.bean.VirusInfoBean;
@@ -38,6 +39,7 @@ public class AnitVirusPresenter extends BasePresenter<AnitVirusContract.View> im
     private final MD5Utils md5Utils;
     private final VirusDao virusDao;
     public int width;
+    private static final String TAG = "AnitVirusPresenter";
 
     public AnitVirusPresenter(Context context) {
         this.context = context;
@@ -89,10 +91,13 @@ public class AnitVirusPresenter extends BasePresenter<AnitVirusContract.View> im
      * 开启异步
      */
     private void startAsyncTask() {
-        if (myAsyncTask == null) {
+        try {
             myAsyncTask = new MyAsyncTask();
+            myAsyncTask.execute();
+        } catch (Exception e) {
+            Log.e(TAG, "startAsyncTask: " + e.getLocalizedMessage().toString());
+            e.printStackTrace();
         }
-        myAsyncTask.execute();
     }
 
     class MyAsyncTask extends AsyncTask<String, VirusInfoBean, Integer> {

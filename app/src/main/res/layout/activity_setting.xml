@@ -16,7 +16,7 @@
         android:layout_marginTop="@dimen/dp_10"
         android:background="@drawable/select_first_bg"
         app:isToggle="true"
-        app:title="@string/szzdgx" />
+        app:title="设置自动更新" />
 
     <com.ngyb.settingsummary.SettingItemView
         android:id="@+id/siv_address"
@@ -24,7 +24,7 @@
         android:layout_height="wrap_content"
         android:background="@drawable/select_middle_bg"
         app:isToggle="true"
-        app:title="@string/gsdxssz" />
+        app:title="归属地显示设置" />
 
     <com.ngyb.settingsummary.SettingItemView
         android:id="@+id/siv_address_style"
@@ -32,5 +32,5 @@
         android:layout_height="wrap_content"
         android:background="@drawable/select_last_bg"
         app:isToggle="false"
-        app:title="@string/gsdxsfgsz" />
+        app:title="归属地显示风格设置" />
 </LinearLayout>
