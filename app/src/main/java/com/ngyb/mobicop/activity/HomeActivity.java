@@ -21,7 +21,6 @@ import com.ngyb.mvpbase.BaseMvpActivity;
  * 日期：2019/11/1 11:01
  */
 public class HomeActivity extends BaseMvpActivity<HomePresenter> implements HomeContract.View, View.OnClickListener {
-
     private ImageView ivLogo;
     private GridView gv;
     private ImageView ivSetting;
