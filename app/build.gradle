@@ -43,8 +43,9 @@ dependencies {
     implementation 'com.github.nangongyibin7219:Android_Utils:1.0.8'
     implementation 'com.github.nangongyibin7219:Android_DialogSummary:1.0.3'
     implementation 'com.github.nangongyibin7219:Android_ItemSummary:1.0.2'
-    implementation 'com.github.nangongyibin7219:Android_ToastSummary:1.0.1'
+    implementation 'com.github.nangongyibin7219:Android_ToastSummary:1.0.3'
     //杀毒界面用到的第三方
     implementation 'com.github.lzyzsd:circleprogress:1.2.1'
     implementation 'se.emilsjolander:stickylistheaders:2.7.0'
+    implementation 'com.jaredrummler:android-processes:1.1.1'
 }

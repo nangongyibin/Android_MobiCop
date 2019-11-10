@@ -2,6 +2,7 @@ package com.ngyb.mobicop.presenter;
 
 import android.content.Context;
 import android.text.format.Formatter;
+import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
@@ -28,7 +29,7 @@ import es.dmoral.toasty.Toasty;
  * 日期：2019/11/10 11:51
  */
 public class ProcessManagerPresenter extends BasePresenter<ProcessManagerContract.View> implements ProcessManagerContract.Presenter {
-
+    private static final String TAG = "ProcessManagerPresenter";
     private final AppUtils appUtils;
     private final SharedPreferencesUtils sharedPreferencesUtils;
     private Context ctx;
@@ -58,31 +59,41 @@ public class ProcessManagerPresenter extends BasePresenter<ProcessManagerContrac
     }
 
     public void initProcess() {
-        runningProcess = appUtils.getRunningProcess2(ctx);
-        allProcess = appUtils.getAllProcess(ctx);
-        progress = runningProcess * 100 / allProcess;
-        mView.setProcess(runningProcess, allProcess, progress);
-        new Thread() {
-            @Override
-            public void run() {
-                processInfoList = appUtils.getAllRunningProcessInfo(ctx);
-                for (int i = 0; i < processInfoList.size(); i++) {
-                    ProcessBean processBean = processInfoList.get(i);
-                    if (processBean.isSys()) {
-                        systemList.add(processBean);
-                    } else {
-                        customerlist.add(processBean);
+        try {
+            Log.e(TAG, "initProcess: 1" );
+            runningProcess = appUtils.getRunningProcess2(ctx);
+            Log.e(TAG, "initProcess: 2+run"+runningProcess );
+            allProcess = appUtils.getAllProcess(ctx);
+            Log.e(TAG, "initProcess: 3all"+allProcess );
+            progress = runningProcess * 100 / allProcess;
+            Log.e(TAG, "initProcess: 4pro"+progress );
+            mView.setProcess(runningProcess, allProcess, progress);
+            Log.e(TAG, "initProcess: 5" );
+            new Thread() {
+                @Override
+                public void run() {
+                    processInfoList = appUtils.getAllRunningProcessInfo(ctx);
+                    for (int i = 0; i < processInfoList.size(); i++) {
+                        ProcessBean processBean = processInfoList.get(i);
+                        if (processBean.isSys()) {
+                            systemList.add(processBean);
+                        } else {
+                            customerlist.add(processBean);
+                        }
                     }
+                    processInfoList.clear();
+                    processInfoList.addAll(customerlist);
+                    processInfoList.addAll(systemList);
+                    adapter = new ProcessManagerAdapter(ctx, processInfoList, customerlist, systemList);
+                    adapter.setShowSys(showSys);
+                    mView.setAdapter(adapter);
+                    super.run();
                 }
-                processInfoList.clear();
-                processInfoList.addAll(customerlist);
-                processInfoList.addAll(systemList);
-                adapter = new ProcessManagerAdapter(ctx, processInfoList, customerlist, systemList);
-                adapter.setShowSys(showSys);
-                mView.setAdapter(adapter);
-                super.run();
-            }
-        }.start();
+            }.start();
+        } catch (Exception e) {
+            Log.e(TAG, "initProcess: "+e.getLocalizedMessage().toString() );
+            e.printStackTrace();
+        }
     }
 
     @Override

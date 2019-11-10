@@ -6,6 +6,7 @@ import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.AlphaAnimation;
@@ -32,6 +33,7 @@ import com.ngyb.mobicop.presenter.ProcessManagerPresenter;
 import com.ngyb.mobicop.service.LockCleanService;
 import com.ngyb.mvpbase.BaseMvpActivity;
 import com.ngyb.settingsummary.SettingItemView;
+
 import se.emilsjolander.stickylistheaders.StickyListHeadersListView;
 
 /**
@@ -41,7 +43,7 @@ import se.emilsjolander.stickylistheaders.StickyListHeadersListView;
  * 日期：2019/11/9 18:06
  */
 public class ProcessManagerActivity extends BaseMvpActivity<ProcessManagerPresenter> implements ProcessManagerContract.View, View.OnClickListener {
-
+    private static final String TAG = "ProcessManagerActivity";
     private ProcessItemView pivProcess;
     private ImageView ivClean;
     private ProcessItemView pivMemory;
@@ -66,13 +68,18 @@ public class ProcessManagerActivity extends BaseMvpActivity<ProcessManagerPresen
 
     @Override
     public void init() {
-        initView();
-        initClass();
-        initAnimation();
-        initProcess();
-        initMemoryInfo();
-        initOpen();
-        initListener();
+        try {
+            initView();
+            initClass();
+            initAnimation();
+            initProcess();
+            initMemoryInfo();
+            initOpen();
+            initListener();
+        } catch (Exception e) {
+            Log.e(TAG, "init: " + e.getLocalizedMessage().toString());
+            e.printStackTrace();
+        }
     }
 
     private void initOpen() {
@@ -84,6 +91,7 @@ public class ProcessManagerActivity extends BaseMvpActivity<ProcessManagerPresen
     }
 
     private void initProcess() {
+        Log.e(TAG, "initProcess: 初始化进程");
         processManagerPresenter.initProcess();
     }
 
@@ -261,9 +269,11 @@ public class ProcessManagerActivity extends BaseMvpActivity<ProcessManagerPresen
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.tv_uninstall:
-                Intent intent = new Intent("android.intent.action.DELETE");
-                intent.addCategory("android.intent.category.DEFAULT");
-                intent.setData(Uri.parse("package: " + processManagerPresenter.bean.getPackageName()));
+                Intent intent = new Intent(Intent.ACTION_DELETE);
+//                Intent intent = new Intent("android.intent.action.DELETE");
+//                intent.addCategory("android.intent.category.DEFAULT");
+                Log.e(TAG, "onClick: "+processManagerPresenter.bean.getPackageName() );
+                intent.setData(Uri.parse("package:" + processManagerPresenter.bean.getPackageName()));
                 startActivity(intent);
                 if (popupWindow != null) {
                     popupWindow.dismiss();
@@ -330,7 +340,7 @@ public class ProcessManagerActivity extends BaseMvpActivity<ProcessManagerPresen
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         if (requestCode == 7219) {
-            if (permissions[0] == Manifest.permission.SEND_SMS && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+            if (permissions[0].equals(Manifest.permission.SEND_SMS) && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                 Uri uri = Uri.parse("smsto: ");
                 Intent intent1 = new Intent(Intent.ACTION_SENDTO, uri);
                 intent1.putExtra("sms_body", "分享一个应用" + processManagerPresenter.bean.getName());

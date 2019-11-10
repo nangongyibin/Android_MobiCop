@@ -106,7 +106,7 @@
                         android:layout_height="wrap_content"
                         android:background="@drawable/select_first_bg"
                         app:isToggle="true"
-                        app:title="@string/xsxtjc" />
+                        app:title="显示系统进程" />
 
                     <com.ngyb.settingsummary.SettingItemView
                         android:id="@+id/siv_lock_clean"
@@ -114,7 +114,7 @@
                         android:layout_height="wrap_content"
                         android:background="@drawable/select_last_bg"
                         app:isToggle="true"
-                        app:title="@string/spzdql" />
+                        app:title="锁屏自动清理" />
                 </LinearLayout>
             </SlidingDrawer>
         </RelativeLayout>
