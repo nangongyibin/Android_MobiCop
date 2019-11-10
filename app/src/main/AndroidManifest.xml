@@ -67,9 +67,14 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".activity.InterceptetActivity"
+            android:excludeFromRecents="true"
+            android:launchMode="singleInstance"
             android:screenOrientation="portrait" />
         <activity
             android:name=".activity.AnitVirusActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.ProcessManagerActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".activity.ComposeSmsActivity"
@@ -95,6 +100,7 @@
         <service android:name=".service.ProtectService" />
         <service android:name=".service.AddressService" />
         <service android:name=".service.DogService" />
+        <service android:name=".service.LockCleanService" />
         <service
             android:name=".service.HeadlessSmsSendService"
             android:exported="true"

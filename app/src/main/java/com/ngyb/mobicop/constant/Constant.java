@@ -13,4 +13,6 @@ public class Constant {
     public static final String SHORT_CUT_KEY = "999";
 
     public static final String url = "http://it.nangongyibin.com:8080/resource/mobicop.json";
+
+    public static final String SHOW_SYS_PROCESS = "SHOW_SYS_PROCESS";
 }

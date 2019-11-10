@@ -24,4 +24,9 @@
         <item name="android:textColor">@android:color/white</item>
         <item name="android:background">#00a2ff</item>
     </style>
+
+    <style name="PopupWindowAnimationStyle">
+        <item name="android:windowEnterAnimation">@anim/popup_enter</item>
+        <item name="android:windowExitAnimation">@anim/popup_exit</item>
+    </style>
 </resources>

@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_45">
+
+        <TextView
+            style="@style/TitleStyle"
+            android:text="进程管理" />
+
+        <ImageView
+            android:id="@+id/iv_clean"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/dp_10"
+            android:background="@drawable/clean_normal" />
+    </RelativeLayout>
+
+    <com.ngyb.itemsummary.ProcessItemView
+        android:id="@+id/piv_process"
+        android:layout_width="match_parent"
+        android:layout_height="warp_content" />
+
+    <com.ngyb.itemsummary.ProcessItemView
+        android:id="@+id/piv_memory"
+        android:layout_width="match_parent"
+        android:layout_height="warp_content"
+        android:layout_marginTop="@dimen/dp_1" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="100">
+
+            <ProgressBar
+                android:id="@+id/progress_loading"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:indeterminateDrawable="@drawable/rotate_loading"
+                android:indeterminateDuration="300" />
+
+            <se.emilsjolander.stickylistheaders.StickyListHeadersListView
+                android:id="@+id/lv_process"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+            <SlidingDrawer
+                android:id="@+id/sd"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:content="@id/content"
+                android:handle="@id/handle">
+
+                <RelativeLayout
+                    android:id="@+id/handle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/drawer_bg"
+                    android:gravity="center">
+
+                    <ImageView
+                        android:id="@+id/iv_arrow1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dp_10"
+                        android:src="@drawable/drawer_arrow_up" />
+
+                    <ImageView
+                        android:id="@+id/iv_arrow2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/iv_arrow1"
+                        android:src="@drawable/drawer_arrow_up" />
+                </RelativeLayout>
+
+                <LinearLayout
+                    android:id="@+id/content"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="#fff"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="进程管理设置" />
+
+                    <com.ngyb.settingsummary.SettingItemView
+                        android:id="@+id/siv_show_sys"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/select_first_bg"
+                        app:isToggle="true"
+                        app:title="显示系统进程" />
+
+                    <com.ngyb.settingsummary.SettingItemView
+                        android:id="@+id/siv_lock_clean"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/select_last_bg"
+                        app:isToggle="true"
+                        app:title="锁屏自动清理" />
+                </LinearLayout>
+            </SlidingDrawer>
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_55"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btn_select_all"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="全选" />
+
+            <Button
+                android:id="@+id/btn_select_reverse"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="反选" />
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>
