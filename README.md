@@ -11,8 +11,6 @@
 
 ![](https://github.com/nangongyibin7219/Android_MobiCop/blob/master/picture/1.png?raw=true)
 
-
-
 ### 1.1.2	进程管理
 
 进行管理功能，主要用于显示当前手机运行的进程信息，并且该功能可以单个或批量杀死进程，并设置是否显示系统进程以及锁屏自动清理进程，进程管理的部分截图如图1-2所示。
@@ -356,9 +354,9 @@ apk如需覆盖安装，例如：手机卫士由1.0版本升级到2.0版本。�
 
 ## 1.5	属性动画实现旋转效果
 
-![](https://github.com/nangongyibin7219/Android_MobiCop/blob/master/picture/14.png?raw=true)
+![](https://github.com/nangongyibin7219/Android_MobiCop/blob/master/picture/1.png?raw=true)
 
-![](https://github.com/nangongyibin7219/Android_MobiCop/blob/master/picture/15.png?raw=true)
+![](https://github.com/nangongyibin7219/Android_MobiCop/blob/master/picture/1.png?raw=true)
 
 logo图片在屏幕中以y轴作为对称轴，在Z轴方向做旋转，如上图效果，需用到属性动画实现此效果。
 
@@ -382,7 +380,7 @@ logo图片在屏幕中以y轴作为对称轴，在Z轴方向做旋转，如上�
 
 实现文字在水平方向滚动，无限轮训，如下图所示。
 
-![](https://github.com/nangongyibin7219/Android_MobiCop/blob/master/picture/16.png?raw=true)
+![](https://github.com/nangongyibin7219/Android_MobiCop/blob/master/picture/1.png?raw=true)
 
 ### 1.6.1	Xml实现文字水平滚动
 
@@ -463,7 +461,7 @@ logo图片在屏幕中以y轴作为对称轴，在Z轴方向做旋转，如上�
 
 主界面采用宫格效果展示，如下图所示，需要用到GridView控件，numColumns属性用于指定宫格的列数，目前指定为两列，verticalSpacing和horizontalSpacing分别指定的是宫格内部方格的间距，目前指定大小分别为5dp。
 
-![](https://github.com/nangongyibin7219/Android_MobiCop/blob/master/picture/17.png?raw=true)
+![](https://github.com/nangongyibin7219/Android_MobiCop/blob/master/picture/1.png?raw=true)
 
         <GridView
         android:id="@+id/gv"
@@ -515,9 +513,9 @@ gridView宫格填充数据的方式和ListView类似，只需给其设置相应�
 
 点中宫格条目后需要和为点中有明显的颜色区分，如下图，可采用状态选择器实现。一个状态对应一张图片项目中有选中状态和未选中状态,相应的图片也需提供两张。根节点为根节点为selector,子节点为item,状态和相应图片匹配。
 
-![](https://github.com/nangongyibin7219/Android_MobiCop/blob/master/picture/18.png?raw=true)
+![](https://github.com/nangongyibin7219/Android_MobiCop/blob/master/picture/1.png?raw=true)
 
-![](https://github.com/nangongyibin7219/Android_MobiCop/blob/master/picture/19.png?raw=true)
+![](https://github.com/nangongyibin7219/Android_MobiCop/blob/master/picture/1.png?raw=true)
 
     <?xml version="1.0" encoding="utf-8"?>
 	<selector xmlns:android="http://schemas.android.com/apk/res/android">
@@ -556,7 +554,7 @@ gridView宫格填充数据的方式和ListView类似，只需给其设置相应�
 
 设置按钮背景为xml绘制，需用到shape标签对圆型图片进行绘制，绘制需指定绘制类型、半径大小、圆宽高大小、指定图片颜色。以下是绘制过程中用到的属性说明。
 
-![](https://github.com/nangongyibin7219/Android_MobiCop/blob/master/picture/20.png?raw=true)
+![](https://github.com/nangongyibin7219/Android_MobiCop/blob/master/picture/1.png?raw=true)
 
 
 | 属性 | 属性说明 | 
