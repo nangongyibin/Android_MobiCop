@@ -1,6 +1,8 @@
 package com.ngyb.mobicop.service;
 
+import android.app.ActivityManager;
 import android.app.Service;
+import android.app.usage.UsageEvents;
 import android.app.usage.UsageStats;
 import android.app.usage.UsageStatsManager;
 import android.content.ContentResolver;
@@ -10,10 +12,12 @@ import android.content.IntentFilter;
 import android.net.Uri;
 import android.os.Build;
 import android.os.IBinder;
+import android.util.Log;
 
 import androidx.annotation.Nullable;
 
 import com.ngyb.mobicop.activity.InterceptetActivity;
+import com.ngyb.mobicop.constant.Constant;
 import com.ngyb.mobicop.contentobserver.DogContentObserver;
 import com.ngyb.mobicop.dao.AppLockDao;
 import com.ngyb.mobicop.receiver.DogReceiver;
@@ -45,9 +49,10 @@ public class DogService extends Service {
 
     @Override
     public void onCreate() {
+        Log.e(TAG, "onCreate: 看门狗服务开启");
         isRunning = true;
         dogReceiver = new DogReceiver(DogService.this);
-        IntentFilter intentFilter = new IntentFilter();
+        IntentFilter intentFilter = new IntentFilter("Intent.action.UNLOCK");
         intentFilter.addAction(Intent.ACTION_SCREEN_ON);
         intentFilter.addAction(Intent.ACTION_SCREEN_OFF);
         registerReceiver(dogReceiver, intentFilter);
@@ -72,6 +77,7 @@ public class DogService extends Service {
                         e.printStackTrace();
                     }
                     String packageName = getTopApp(DogService.this);
+                    Log.e(TAG, "run: topactivity = " + packageName);
                     if (unLockPackageNameList.contains(packageName)) {
                         continue;
                     }
@@ -88,7 +94,7 @@ public class DogService extends Service {
 
     private String getTopApp(Context context) {
         String topActivity = "";
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+        if (Build.VERSION.SDK_INT > Build.VERSION_CODES.LOLLIPOP) {
             UsageStatsManager m = (UsageStatsManager) context.getSystemService(Context.USAGE_STATS_SERVICE);
             if (m != null) {
                 long now = System.currentTimeMillis();
@@ -103,13 +109,47 @@ public class DogService extends Service {
                     topActivity = stats.get(j).getPackageName();
                 }
             }
+        } else {
+            ActivityManager activityManager = (ActivityManager) context.getSystemService(Context.ACTIVITY_SERVICE);
+            List<ActivityManager.RunningTaskInfo> appTasks = activityManager.getRunningTasks(1);
+            if (null != appTasks && !appTasks.isEmpty()) {
+                topActivity = appTasks.get(0).topActivity.getPackageName();
+            } else {
+                topActivity = "";
+            }
         }
         return topActivity;
+//        ActivityManager activityManager = (ActivityManager) context.getSystemService(Context.ACTIVITY_SERVICE );
+//        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP) {
+//            List<ActivityManager.RunningTaskInfo> appTasks = activityManager.getRunningTasks(1);
+//            if (null != appTasks && !appTasks.isEmpty()) {
+//                return appTasks.get(0).topActivity.getPackageName();
+//            }
+//        } else {
+//            //5.0以后需要用这方法
+//            UsageStatsManager sUsageStatsManager = (UsageStatsManager) context.getSystemService(Context.USAGE_STATS_SERVICE);
+//            long endTime = System.currentTimeMillis();
+//            long beginTime = endTime - 10000;
+//            String result = "";
+//            UsageEvents.Event event = new UsageEvents.Event();
+//            UsageEvents usageEvents = sUsageStatsManager.queryEvents(beginTime, endTime);
+//            while (usageEvents.hasNextEvent()) {
+//                usageEvents.getNextEvent(event);
+//                if (event.getEventType() == UsageEvents.Event.MOVE_TO_FOREGROUND) {
+//                    result = event.getPackageName();
+//                }
+//            }
+//            if (!android.text.TextUtils.isEmpty(result)) {
+//                return result;
+//            }
+//        }
+//        return "";
     }
 
     public void receiver(Intent intent) {
         if (intent.getAction().equals("Intent.action.UNLOCK")) {
             String packagename = intent.getStringExtra("packagename");
+            Log.e(TAG, "receiver: " + packagename);
             unLockPackageNameList.add(packagename);
         } else if (intent.getAction().equals(Intent.ACTION_SCREEN_OFF)) {
             isRunning = false;
@@ -126,6 +166,7 @@ public class DogService extends Service {
 
     @Override
     public void onDestroy() {
+        Log.e(TAG, "onCreate: 看门狗服务关闭");
         super.onDestroy();
         isRunning = false;
         if (dogReceiver != null) {

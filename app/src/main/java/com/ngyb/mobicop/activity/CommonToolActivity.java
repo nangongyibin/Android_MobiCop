@@ -6,6 +6,7 @@ import android.annotation.TargetApi;
 import android.app.AppOpsManager;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.provider.Settings;
@@ -154,7 +155,6 @@ public class CommonToolActivity extends BaseMvpActivity<CommonToolPresenter> imp
                         serviceStartAndStop();
                     }
                 } catch (Exception e) {
-                    Log.e(TAG, "onClick: "+e.getLocalizedMessage().toString() );
                     e.printStackTrace();
                 }
                 break;
@@ -162,10 +162,16 @@ public class CommonToolActivity extends BaseMvpActivity<CommonToolPresenter> imp
     }
 
     private boolean hasPermission() {
-        AppOpsManager appOps = (AppOpsManager) getSystemService(Context.APP_OPS_SERVICE);
         int mode = 0;
-        if (Build.VERSION.SDK_INT > Build.VERSION_CODES.KITKAT) {
-            mode = appOps.unsafeCheckOpNoThrow(AppOpsManager.OPSTR_GET_USAGE_STATS, android.os.Process.myUid(), getPackageName());
+        try {
+            AppOpsManager appOps = (AppOpsManager) getSystemService(Context.APP_OPS_SERVICE);
+            mode = 0;
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT && appOps != null) {
+                mode = appOps.checkOpNoThrow(AppOpsManager.OPSTR_GET_USAGE_STATS,
+                        android.os.Process.myUid(), getPackageName());
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
         }
         return mode == AppOpsManager.MODE_ALLOWED;
     }
@@ -202,7 +208,7 @@ public class CommonToolActivity extends BaseMvpActivity<CommonToolPresenter> imp
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         if (requestCode == 9127) {
             smsRestore();
-        }else if (requestCode ==1101){
+        } else if (requestCode == 1101) {
             serviceStartAndStop();
         }
         super.onActivityResult(requestCode, resultCode, data);
