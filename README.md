@@ -9,38 +9,38 @@
 
 手机卫士项目有很多界面，当用户通过点击应用图标打开应用时，通常第一个呈现给我们的是一个启动界面，我们这里称为Splash界面（该界面的相关内容在后面讲解）。启动界面之后的第二个界面通常才是主界面。手机卫士的主界面是一个类似九宫格的界面，它的每一个格子代表的一项功能模块，具体如图1-1所示。
 
-![](https://github.com/nangongyibin7219/Android_MobiCop/blob/master/picture/1.png?raw=true)
+![](https://github.com/nangongyibin/Android_MobiCop/blob/master/picture/1.png?raw=true)
 
 ### 1.1.2	进程管理
 
 进行管理功能，主要用于显示当前手机运行的进程信息，并且该功能可以单个或批量杀死进程，并设置是否显示系统进程以及锁屏自动清理进程，进程管理的部分截图如图1-2所示。
 
-![](https://github.com/nangongyibin7219/Android_MobiCop/blob/master/picture/2.png?raw=true)
+![](https://github.com/nangongyibin/Android_MobiCop/blob/master/picture/2.png?raw=true)
 
 
-![](https://github.com/nangongyibin7219/Android_MobiCop/blob/master/picture/3.png?raw=true)
+![](https://github.com/nangongyibin/Android_MobiCop/blob/master/picture/3.png?raw=true)
 
 ### 1.1.3	手机杀毒
 
 手机杀毒功能，主要是通过扫描用户手机，通过和本地病毒库的对比，根据程序的包名和程序的数字签名识别病毒,提示用户并查杀，让恶意软件，吸费木马无处可藏，手机杀毒的效果如图1-3所示。
 
-![](https://github.com/nangongyibin7219/Android_MobiCop/blob/master/picture/4.png?raw=true)
+![](https://github.com/nangongyibin/Android_MobiCop/blob/master/picture/4.png?raw=true)
 
-![](https://github.com/nangongyibin7219/Android_MobiCop/blob/master/picture/5.png?raw=true)
+![](https://github.com/nangongyibin/Android_MobiCop/blob/master/picture/5.png?raw=true)
 
 ### 1.1.4	常用工具
 
 手机卫士的常用工具，包含了自动IP拨号、手机号码归属地查询、更改归属地位置，常用号码查询等功能，具体效果如图1-4所示。
 
-![](https://github.com/nangongyibin7219/Android_MobiCop/blob/master/picture/6.png?raw=true)
+![](https://github.com/nangongyibin/Android_MobiCop/blob/master/picture/6.png?raw=true)
 
 ### 1.1.5	 设置中心
 
 设置中心，主要用于设置某些功能模块，比如自动更新的设置、骚扰拦截的设置、归属地显示的设置、归属地风格设置等。设置中心的界面效果如图1-10所示。
 
-![](https://github.com/nangongyibin7219/Android_MobiCop/blob/master/picture/7.png?raw=true)
+![](https://github.com/nangongyibin/Android_MobiCop/blob/master/picture/7.png?raw=true)
 
-![](https://github.com/nangongyibin7219/Android_MobiCop/blob/master/picture/8.png?raw=true)
+![](https://github.com/nangongyibin/Android_MobiCop/blob/master/picture/8.png?raw=true)
 
 ## 1.2	SplashActivity界面版本更新
 
@@ -49,7 +49,7 @@
 ### 1.2.1	SplashActivity界面展示
 
 SplashActivity即闪屏界面，用于显示应用logo和项目版本号，具体如图1-11所示。
-![](https://github.com/nangongyibin7219/Android_MobiCop/blob/master/picture/9.png?raw=true)
+![](https://github.com/nangongyibin/Android_MobiCop/blob/master/picture/9.png?raw=true)
 
 从图1-11中可以看出，Splash界面展示了当前应用的名称，该版本名称可从应用AndroidManifest.xml清单配置文件中获取，android:versionName="1.0"属性指向的就是应用的版本名称。通过PackageManager相关api可获取此版本信息，其实现过程如下所示：
 
@@ -72,7 +72,7 @@ SplashActivity即闪屏界面，用于显示应用logo和项目版本号，具�
 
 当进入应用程序时，应用程序通常都会向服务器发送请求，检测当前的版本信息是否是最新的。如果服务器有新的版本，则客户端会发送请求，服务器会返回一个新版本的apk下载地址，用户可以根据地址下载并安装应用程序，从而实现版本的更新。接下来，通过一张图来描述应用程序版本更新的具体流程，如图1-12所示。
 
-![](https://github.com/nangongyibin7219/Android_MobiCop/blob/master/picture/10.png?raw=true)
+![](https://github.com/nangongyibin/Android_MobiCop/blob/master/picture/10.png?raw=true)
 
 从服务端获取新版apk信息的json文件，解析此json文件，如果发现服务端版本号大于本地版本号，则需要从服务器提供的链接地址下载apk进行更新，并安装。图1-12展示了版本更新及其安装的整个过程。
 
@@ -346,17 +346,17 @@ SplashActivity即闪屏界面，用于显示应用logo和项目版本号，具�
 ### 1.4.3	apk签名文件生成
 
 apk如需覆盖安装，例如：手机卫士由1.0版本升级到2.0版本。需保证apk包名以及签名一致，如果两者缺少一个都会导致覆盖安装失败。按照如下方式生成签名文件。
-![](https://github.com/nangongyibin7219/Android_MobiCop/blob/master/picture/11.png?raw=true)
+![](https://github.com/nangongyibin/Android_MobiCop/blob/master/picture/11.png?raw=true)
 
-![](https://github.com/nangongyibin7219/Android_MobiCop/blob/master/picture/12.png?raw=true)
+![](https://github.com/nangongyibin/Android_MobiCop/blob/master/picture/12.png?raw=true)
 
-![](https://github.com/nangongyibin7219/Android_MobiCop/blob/master/picture/13.png?raw=true)
+![](https://github.com/nangongyibin/Android_MobiCop/blob/master/picture/13.png?raw=true)
 
 ## 1.5	属性动画实现旋转效果
 
-![](https://github.com/nangongyibin7219/Android_MobiCop/blob/master/picture/1.png?raw=true)
+![](https://github.com/nangongyibin/Android_MobiCop/blob/master/picture/1.png?raw=true)
 
-![](https://github.com/nangongyibin7219/Android_MobiCop/blob/master/picture/1.png?raw=true)
+![](https://github.com/nangongyibin/Android_MobiCop/blob/master/picture/1.png?raw=true)
 
 logo图片在屏幕中以y轴作为对称轴，在Z轴方向做旋转，如上图效果，需用到属性动画实现此效果。
 
@@ -380,7 +380,7 @@ logo图片在屏幕中以y轴作为对称轴，在Z轴方向做旋转，如上�
 
 实现文字在水平方向滚动，无限轮训，如下图所示。
 
-![](https://github.com/nangongyibin7219/Android_MobiCop/blob/master/picture/1.png?raw=true)
+![](https://github.com/nangongyibin/Android_MobiCop/blob/master/picture/1.png?raw=true)
 
 ### 1.6.1	Xml实现文字水平滚动
 
@@ -461,7 +461,7 @@ logo图片在屏幕中以y轴作为对称轴，在Z轴方向做旋转，如上�
 
 主界面采用宫格效果展示，如下图所示，需要用到GridView控件，numColumns属性用于指定宫格的列数，目前指定为两列，verticalSpacing和horizontalSpacing分别指定的是宫格内部方格的间距，目前指定大小分别为5dp。
 
-![](https://github.com/nangongyibin7219/Android_MobiCop/blob/master/picture/1.png?raw=true)
+![](https://github.com/nangongyibin/Android_MobiCop/blob/master/picture/1.png?raw=true)
 
         <GridView
         android:id="@+id/gv"
@@ -513,9 +513,9 @@ gridView宫格填充数据的方式和ListView类似，只需给其设置相应�
 
 点中宫格条目后需要和为点中有明显的颜色区分，如下图，可采用状态选择器实现。一个状态对应一张图片项目中有选中状态和未选中状态,相应的图片也需提供两张。根节点为根节点为selector,子节点为item,状态和相应图片匹配。
 
-![](https://github.com/nangongyibin7219/Android_MobiCop/blob/master/picture/1.png?raw=true)
+![](https://github.com/nangongyibin/Android_MobiCop/blob/master/picture/1.png?raw=true)
 
-![](https://github.com/nangongyibin7219/Android_MobiCop/blob/master/picture/1.png?raw=true)
+![](https://github.com/nangongyibin/Android_MobiCop/blob/master/picture/1.png?raw=true)
 
     <?xml version="1.0" encoding="utf-8"?>
 	<selector xmlns:android="http://schemas.android.com/apk/res/android">
@@ -554,7 +554,7 @@ gridView宫格填充数据的方式和ListView类似，只需给其设置相应�
 
 设置按钮背景为xml绘制，需用到shape标签对圆型图片进行绘制，绘制需指定绘制类型、半径大小、圆宽高大小、指定图片颜色。以下是绘制过程中用到的属性说明。
 
-![](https://github.com/nangongyibin7219/Android_MobiCop/blob/master/picture/1.png?raw=true)
+![](https://github.com/nangongyibin/Android_MobiCop/blob/master/picture/1.png?raw=true)
 
 
 | 属性 | 属性说明 | 
@@ -731,7 +731,7 @@ gridView宫格填充数据的方式和ListView类似，只需给其设置相应�
 
 在本地的sp中存储是否需要检测更新的标志，进入应用的时候将此标志指向的更新状态在界面中回显，并在点击设置条目的时候对是否需要更新状态进行切换，如下图所示。
 
-![](https://github.com/nangongyibin7219/Android_MobiCop/blob/master/picture/21.png?raw=true)
+![](https://github.com/nangongyibin/Android_MobiCop/blob/master/picture/21.png?raw=true)
 
             boolean openState = SharePreUtils.getBooleanValue(this, Constant.UPDATE_AUTO, true);
         //状态匹配图片,显示在屏幕上
@@ -778,7 +778,7 @@ gridView宫格填充数据的方式和ListView类似，只需给其设置相应�
 
 号码归属地的效果图：
 
-![](https://github.com/nangongyibin7219/Android_MobiCop/blob/master/picture/22.png?raw=true)
+![](https://github.com/nangongyibin/Android_MobiCop/blob/master/picture/22.png?raw=true)
 
 接下来我们就来实现号码归属地查询功能，在中国还是比较有规律的，比如手机号码第一位都是1，第二位34578，第三位往后0-9数字，总共11位，我们就可以根据号码的前三位我们可以确定号码的运营商，比如131联通、133电信、134移动等等，然后从第三位开始再往后数4位，确定号码的归属地，也是就说我们可以通过一个号码的前7位查询出一个号码的运营商和归属地，其实最开始是这个号码归属地是网友收集的，他将这些号段收集起来，创建了一个数据库，我们就可以根据号码查询出对应的归属地了。
 
@@ -975,13 +975,13 @@ gridView宫格填充数据的方式和ListView类似，只需给其设置相应�
 归属地特效效果图：
 
 
-![](https://github.com/nangongyibin7219/Android_MobiCop/blob/master/picture/21.png?raw=true)
+![](https://github.com/nangongyibin/Android_MobiCop/blob/master/picture/21.png?raw=true)
 
 
-![](https://github.com/nangongyibin7219/Android_MobiCop/blob/master/picture/8.png?raw=true)
+![](https://github.com/nangongyibin/Android_MobiCop/blob/master/picture/8.png?raw=true)
 
 
-![](https://github.com/nangongyibin7219/Android_MobiCop/blob/master/picture/24.png?raw=true)
+![](https://github.com/nangongyibin/Android_MobiCop/blob/master/picture/24.png?raw=true)
 
 ### 1.11.1.	需求
 
@@ -1019,7 +1019,7 @@ gridView宫格填充数据的方式和ListView类似，只需给其设置相应�
 
 ### 1.11.3.	抖动
 
-![](https://github.com/nangongyibin7219/Android_MobiCop/blob/master/picture/23.png?raw=true)
+![](https://github.com/nangongyibin/Android_MobiCop/blob/master/picture/23.png?raw=true)
 
 打开apiDemo（apidemo所在位置如上图所示）查看需要增加的效果，apidemo里android中各种控件的实现效果，举例演示，查找增加的效果，views - animation - shake，和我们的界面进行比较，点击login发现输入框开始左右抖动，接下就来给输入框增加相应的效果。
 
@@ -1031,7 +1031,7 @@ gridView宫格填充数据的方式和ListView类似，只需给其设置相应�
 
 来电显示归属地的效果图：
 
-![](https://github.com/nangongyibin7219/Android_MobiCop/blob/master/picture/24.png?raw=true)
+![](https://github.com/nangongyibin/Android_MobiCop/blob/master/picture/24.png?raw=true)
 
 ### 1.12.1.	需求
 
@@ -1416,7 +1416,7 @@ gridView宫格填充数据的方式和ListView类似，只需给其设置相应�
 
 显示号码归属地效果图：
 
-![](https://github.com/nangongyibin7219/Android_MobiCop/blob/master/picture/24.png?raw=true)
+![](https://github.com/nangongyibin/Android_MobiCop/blob/master/picture/24.png?raw=true)
 
 ###  1.14.1需求
 
@@ -1461,7 +1461,7 @@ gridView宫格填充数据的方式和ListView类似，只需给其设置相应�
 
 设置和设置完之后Toast的效果图：
 
-![](https://github.com/nangongyibin7219/Android_MobiCop/blob/master/picture/24.png?raw=true)
+![](https://github.com/nangongyibin/Android_MobiCop/blob/master/picture/24.png?raw=true)
 
 ###  1.15.1.需求
 
@@ -1660,7 +1660,7 @@ gridView宫格填充数据的方式和ListView类似，只需给其设置相应�
 
 Dialog位置未调整前。
 
-![](https://github.com/nangongyibin7219/Android_MobiCop/raw/master/picture/8.png?raw=true)
+![](https://github.com/nangongyibin/Android_MobiCop/raw/master/picture/8.png?raw=true)
 
 测试发现Dialog的位置不对（如上图所示），通过获取Window设置Dialog的位置，修改dialog对话框的位置。
 
@@ -1676,7 +1676,7 @@ Dialog位置未调整前。
 
 设置完上面的这一段代码之后效果图如下所示：
 
-![](https://github.com/nangongyibin7219/Android_MobiCop/raw/master/picture/8.png?raw=true)
+![](https://github.com/nangongyibin/Android_MobiCop/raw/master/picture/8.png?raw=true)
 
 ####  1.17.2.3.更改Dialog的样式
 
@@ -1720,7 +1720,7 @@ sdk\platforms\android-16\data\res\interpolator将相应的文件拷贝到我们�
 
 res的interpolator文件夹中 -> interpolator。
 
-![](https://raw.githubusercontent.com/nangongyibin7219/Android_MobiCop/master/picture/25.png)
+![](https://raw.githubusercontent.com/nangongyibin/Android_MobiCop/master/picture/25.png)
 
 ####  1.17.2.5.设置Dialog显示的内容
 
@@ -1771,7 +1771,7 @@ res的interpolator文件夹中 -> interpolator。
 
 进程信息效果图：
 
-![](https://raw.githubusercontent.com/nangongyibin7219/Android_MobiCop/master/picture/2.png)
+![](https://raw.githubusercontent.com/nangongyibin/Android_MobiCop/master/picture/2.png)
 
 ###  1.18.1.需求
 
@@ -1851,7 +1851,7 @@ res的interpolator文件夹中 -> interpolator。
 
 进程管理顶部的效果图：
 
-![](https://raw.githubusercontent.com/nangongyibin7219/Android_MobiCop/master/picture/2.png)
+![](https://raw.githubusercontent.com/nangongyibin/Android_MobiCop/master/picture/2.png)
 
 ###  1.19.1.需求
 
@@ -2028,7 +2028,7 @@ totalMem字段在16版本以上才有，为了兼容低版本，要根据手机�
 
 进程数据展示的效果图：
 
-![](https://raw.githubusercontent.com/nangongyibin7219/Android_MobiCop/master/picture/2.png)
+![](https://raw.githubusercontent.com/nangongyibin/Android_MobiCop/master/picture/2.png)
 
 ###  1.20.1.	需求
 
@@ -2145,7 +2145,7 @@ totalMem字段在16版本以上才有，为了兼容低版本，要根据手机�
 
 进程管理功能点的效果图：
 
-![](https://raw.githubusercontent.com/nangongyibin7219/Android_MobiCop/master/picture/2.png)
+![](https://raw.githubusercontent.com/nangongyibin/Android_MobiCop/master/picture/2.png)
 
 ###  1.21.1.	需求
 
@@ -2153,7 +2153,7 @@ totalMem字段在16版本以上才有，为了兼容低版本，要根据手机�
 
 ###  1.21.2.	单选的实现
 
-![](https://raw.githubusercontent.com/nangongyibin7219/Android_MobiCop/master/picture/2.png)
+![](https://raw.githubusercontent.com/nangongyibin/Android_MobiCop/master/picture/2.png)
 
 1.在bean类中设置checkbox是否选中的属性
 
@@ -2196,7 +2196,7 @@ totalMem字段在16版本以上才有，为了兼容低版本，要根据手机�
 
 ###  1.21.3.	全选的实现
 
-![](https://raw.githubusercontent.com/nangongyibin7219/Android_MobiCop/master/picture/2.png)
+![](https://raw.githubusercontent.com/nangongyibin/Android_MobiCop/master/picture/2.png)
 
 将所有应用进程的标示（除了我们自己的手机卫士进程）都改成true，然后刷新界面。
 
@@ -2224,7 +2224,7 @@ totalMem字段在16版本以上才有，为了兼容低版本，要根据手机�
 
 ###  1.21.4.	反选的实现
 
-![](https://raw.githubusercontent.com/nangongyibin7219/Android_MobiCop/master/picture/2.png)
+![](https://raw.githubusercontent.com/nangongyibin/Android_MobiCop/master/picture/2.png)
 
 反选的意思是当前列表中的所有条目如果是选中状态的，变成非选中状态，如果是非选中的，全部变成选中状态。
 
@@ -2252,7 +2252,7 @@ totalMem字段在16版本以上才有，为了兼容低版本，要根据手机�
 
 ###  1.21.5.	清理的实现
 
-![](https://raw.githubusercontent.com/nangongyibin7219/Android_MobiCop/master/picture/2.png)
+![](https://raw.githubusercontent.com/nangongyibin/Android_MobiCop/master/picture/2.png)
 
 将选中的进程清理掉。
 
@@ -2305,7 +2305,7 @@ totalMem字段在16版本以上才有，为了兼容低版本，要根据手机�
 
 抽屉菜单效果图：
 
-![](https://raw.githubusercontent.com/nangongyibin7219/Android_MobiCop/master/picture/26.png)
+![](https://raw.githubusercontent.com/nangongyibin/Android_MobiCop/master/picture/26.png)
 
 ###  1.22.1.	需求
 
@@ -2381,7 +2381,7 @@ totalMem字段在16版本以上才有，为了兼容低版本，要根据手机�
 
 2.创建渐变动画，并在oncreate/initview中调用，表示进入界面就执行动画。当上拉抽屉菜单关闭状态时，通过动画的显示让用户知道这个菜单可以上拉。
 
-![](https://raw.githubusercontent.com/nangongyibin7219/Android_MobiCop/master/picture/27.png)
+![](https://raw.githubusercontent.com/nangongyibin/Android_MobiCop/master/picture/27.png)
 
         private void openAnimation() {
         //1.将之前运行的动画停止
@@ -2405,7 +2405,7 @@ totalMem字段在16版本以上才有，为了兼容低版本，要根据手机�
 
 3.当用户打开了上拉菜单，这时候就需要关闭动画了。
 
-![](https://raw.githubusercontent.com/nangongyibin7219/Android_MobiCop/master/picture/26.png)
+![](https://raw.githubusercontent.com/nangongyibin/Android_MobiCop/master/picture/26.png)
 
         private void closeAnimation() {
         //1.将之前运行的动画停止
@@ -2430,7 +2430,7 @@ totalMem字段在16版本以上才有，为了兼容低版本，要根据手机�
 
 隐藏和显示系统进程开关位置：
 
-![](https://raw.githubusercontent.com/nangongyibin7219/Android_MobiCop/master/picture/26.png)
+![](https://raw.githubusercontent.com/nangongyibin/Android_MobiCop/master/picture/26.png)
 
 ###  1.23.1.	需求
 
@@ -2488,7 +2488,7 @@ totalMem字段在16版本以上才有，为了兼容低版本，要根据手机�
 
 锁屏清理进程功能效果图：
 
-![](https://raw.githubusercontent.com/nangongyibin7219/Android_MobiCop/master/picture/26.png)
+![](https://raw.githubusercontent.com/nangongyibin/Android_MobiCop/master/picture/26.png)
 
 ###  1.24.1.	需求
 
@@ -2547,7 +2547,7 @@ totalMem字段在16版本以上才有，为了兼容低版本，要根据手机�
 
 PopuWindow的效果图：
 
-![](https://raw.githubusercontent.com/nangongyibin7219/Android_MobiCop/master/picture/28.png)
+![](https://raw.githubusercontent.com/nangongyibin/Android_MobiCop/master/picture/28.png)
 
 ###  1.25.1.	需求
 
@@ -2648,7 +2648,7 @@ PopuWindow的效果图：
 
 卸载程序效果图：
 
-![](https://raw.githubusercontent.com/nangongyibin7219/Android_MobiCop/master/picture/29.png)
+![](https://raw.githubusercontent.com/nangongyibin/Android_MobiCop/master/picture/29.png)
 
 通过意图的方式调用系统卸载器进行程序的卸载。
 
@@ -2665,7 +2665,7 @@ PopuWindow的效果图：
 
 打开程序效果图：
 
-![](https://raw.githubusercontent.com/nangongyibin7219/Android_MobiCop/master/picture/9.png)
+![](https://raw.githubusercontent.com/nangongyibin/Android_MobiCop/master/picture/9.png)
 
 通过PackageManager获取对应程序的意图启动器，若得到的意图不为空则启动意图打开程序，否则提示无法启动。
 
@@ -2685,7 +2685,7 @@ PopuWindow的效果图：
 
 分享程序效果图：
 
-![](https://raw.githubusercontent.com/nangongyibin7219/Android_MobiCop/master/picture/30.png)
+![](https://raw.githubusercontent.com/nangongyibin/Android_MobiCop/master/picture/30.png)
 
                     Intent intent1 = new Intent("android.intent.action.SEND");
                 intent1.addCategory("android.intent.category.DEFAULT");
@@ -2700,7 +2700,7 @@ PopuWindow的效果图：
 
 程序详情效果图：
 
-![](https://raw.githubusercontent.com/nangongyibin7219/Android_MobiCop/master/picture/31.png)
+![](https://raw.githubusercontent.com/nangongyibin/Android_MobiCop/master/picture/31.png)
 
 通过意图跳转到程序详情界面。
 
@@ -2712,7 +2712,7 @@ PopuWindow的效果图：
 
 短信备份和还原的功能位置图：
 
-![](https://raw.githubusercontent.com/nangongyibin7219/Android_MobiCop/master/picture/32.png)
+![](https://raw.githubusercontent.com/nangongyibin/Android_MobiCop/master/picture/32.png)
 
 
 ###  1.27.1.	需求
@@ -2821,7 +2821,7 @@ PopuWindow的效果图：
 
 备份短信效果图：
 
-![](https://raw.githubusercontent.com/nangongyibin7219/Android_MobiCop/master/picture/33.png)
+![](https://raw.githubusercontent.com/nangongyibin/Android_MobiCop/master/picture/33.png)
 
 将短信保存到本地文件中。
 
@@ -2838,7 +2838,7 @@ PopuWindow的效果图：
 
 当短信比较多的时候，备份的时间可能会比较长，这时候需要知道备份的进度如下图所示。
 
-![](https://raw.githubusercontent.com/nangongyibin7219/Android_MobiCop/master/picture/33.png)
+![](https://raw.githubusercontent.com/nangongyibin/Android_MobiCop/master/picture/33.png)
 
 1.创建接口。
 
@@ -2895,10 +2895,10 @@ PopuWindow的效果图：
 
 还原短信的过程：
 
-![](https://raw.githubusercontent.com/nangongyibin7219/Android_MobiCop/master/picture/34.png)
+![](https://raw.githubusercontent.com/nangongyibin/Android_MobiCop/master/picture/34.png)
 
 
-![](https://raw.githubusercontent.com/nangongyibin7219/Android_MobiCop/master/picture/35.png)
+![](https://raw.githubusercontent.com/nangongyibin/Android_MobiCop/master/picture/35.png)
 
 
 当用户选择了还原短信，就从本地文件中取出备份的短信重新写到数据中。
@@ -2942,7 +2942,7 @@ PopuWindow的效果图：
 
 程序锁界面效果图：
 
-![](https://raw.githubusercontent.com/nangongyibin7219/Android_MobiCop/master/picture/36.png)
+![](https://raw.githubusercontent.com/nangongyibin/Android_MobiCop/master/picture/36.png)
 
     <?xml version="1.0" encoding="utf-8"?>
 	<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -3109,9 +3109,9 @@ PopuWindow的效果图：
 
 将获取的软件信息用列表进行显示。
 
-![](https://raw.githubusercontent.com/nangongyibin7219/Android_MobiCop/master/picture/36.png)
+![](https://raw.githubusercontent.com/nangongyibin/Android_MobiCop/master/picture/36.png)
 
-![](https://raw.githubusercontent.com/nangongyibin7219/Android_MobiCop/master/picture/37.png)
+![](https://raw.githubusercontent.com/nangongyibin/Android_MobiCop/master/picture/37.png)
 
         @Override
     public View getView(int position, View convertView, ViewGroup parent) {
@@ -3190,7 +3190,7 @@ PopuWindow的效果图：
 
 点击按钮改变按钮的样式和切换界面。
 
-![](https://raw.githubusercontent.com/nangongyibin7219/Android_MobiCop/master/picture/38.png)
+![](https://raw.githubusercontent.com/nangongyibin/Android_MobiCop/master/picture/38.png)
 
         @OnClick({R.id.btn_unlock, R.id.btn_lock, R.id.tv_unlock, R.id.ll_unlock, R.id.tv_lock, R.id.ll_lock})
     public void onViewClicked(View view) {
@@ -3252,9 +3252,9 @@ PopuWindow的效果图：
 
 当程序被加锁时，程序条目向右边平移；当程序解锁时，程序条目向左边平移。
 
-![](https://raw.githubusercontent.com/nangongyibin7219/Android_MobiCop/master/picture/39.png)
+![](https://raw.githubusercontent.com/nangongyibin/Android_MobiCop/master/picture/39.png)
 
-![](https://raw.githubusercontent.com/nangongyibin7219/Android_MobiCop/master/picture/40.png)
+![](https://raw.githubusercontent.com/nangongyibin/Android_MobiCop/master/picture/40.png)
 
             //要执行动画的view,由开始位置,移动到离自身宽度(+)为100%那个坐标位置
         leftToRightAnimation = new TranslateAnimation(Animation.RELATIVE_TO_SELF, 0,
@@ -3306,10 +3306,10 @@ PopuWindow的效果图：
 
 计算器为例加锁效果图：
 
-![](https://raw.githubusercontent.com/nangongyibin7219/Android_MobiCop/master/picture/41.png)
+![](https://raw.githubusercontent.com/nangongyibin/Android_MobiCop/master/picture/41.png)
 
 
-![](https://raw.githubusercontent.com/nangongyibin7219/Android_MobiCop/master/picture/42.png)
+![](https://raw.githubusercontent.com/nangongyibin/Android_MobiCop/master/picture/42.png)
 
 因为要时时刻刻监听用户打开应用程序，所以在服务中进行操作。
 
@@ -3382,7 +3382,7 @@ PopuWindow的效果图：
 
 ###  1.29.4.	解锁bug
 
-![](https://raw.githubusercontent.com/nangongyibin7219/Android_MobiCop/master/picture/42.png)
+![](https://raw.githubusercontent.com/nangongyibin/Android_MobiCop/master/picture/42.png)
 
 加锁界面不退出，点击home键，再次打开其他加锁程序，发现显示的图标和名称不对（如上图所示第一次打开的是计算器应用，第二次打开日历应用还是计算器应用的界面），原因是点击home最小化，再次打开其他程序的时候发现之前的界面已经创建过了，所以直接把界面移动到最前面。解决办法是将操作放到onstart方法中，或者在界面不可见的时候把界面finish掉。
 
@@ -3463,7 +3463,7 @@ PopuWindow的效果图：
 
 ###  1.29.7.	最近列表bug的解决
 
-![](https://raw.githubusercontent.com/nangongyibin7219/Android_MobiCop/master/picture/43.png)
+![](https://raw.githubusercontent.com/nangongyibin/Android_MobiCop/master/picture/43.png)
 
 打开加锁应用，显示出看门狗界面解锁。然后再长按home键，选择手机卫士应用，发现看门狗界面显示出来了。解决办法是将应用从最近列表中删除如上图所示。
 
@@ -3670,7 +3670,7 @@ PopuWindow的效果图：
 实现扫描完成效果。
 
 
-![](https://raw.githubusercontent.com/nangongyibin7219/Android_MobiCop/master/picture/44.png)
+![](https://raw.githubusercontent.com/nangongyibin/Android_MobiCop/master/picture/44.png)
 
 2.遍历循环检查所有通过MD5加密后的程序的特征码，在扫描过程中设置扫描的进度和正在扫描的程序包名。
 
@@ -3703,7 +3703,7 @@ PopuWindow的效果图：
             //更新进度条(当前进度,总进度)
             arcProgress.setProgress(currentPosition * 100 / maxSize);
 
-![](https://raw.githubusercontent.com/nangongyibin7219/Android_MobiCop/master/picture/44.png)
+![](https://raw.githubusercontent.com/nangongyibin/Android_MobiCop/master/picture/44.png)
 
 3.对某个程序进行扫描之后，如果扫描发现当前程序是病毒，则需要将AntivirusInfo中isAntivirus的标示置为true并保存在集合的第一个位置。最后通过适配器实时刷新当前的列表。
 
@@ -3839,7 +3839,7 @@ PopuWindow的效果图：
         }
     }
 
-![](https://raw.githubusercontent.com/nangongyibin7219/Android_MobiCop/master/picture/44.png)
+![](https://raw.githubusercontent.com/nangongyibin/Android_MobiCop/master/picture/44.png)
 
 
 4.当扫描结束之后需要对界面顶部和列表进行显示效果更新（动画效果在4.3,4.4中进行实现），如果有病毒则会在顶部显示有病毒，在列表的最顶部位置会依次显示是病毒的程序。
@@ -3852,7 +3852,7 @@ PopuWindow的效果图：
 
 ###  1.34.2.	扫描完成的动画
 
-![](https://raw.githubusercontent.com/nangongyibin7219/Android_MobiCop/master/picture/5.png)
+![](https://raw.githubusercontent.com/nangongyibin/Android_MobiCop/master/picture/5.png)
 
 当扫描完成之后，需要实现如上图的一个动画。将在扫描过程完成时的图片平分成两半用属性动画分别向两边平移并且伴随透明度的变化，同时扫描结果的界面也要从透明到不透明进行显示。
 
@@ -3902,9 +3902,9 @@ PopuWindow的效果图：
 
 ###  1.34.3.	重新扫描的动画
 
-![](https://raw.githubusercontent.com/nangongyibin7219/Android_MobiCop/master/picture/5.png)
+![](https://raw.githubusercontent.com/nangongyibin/Android_MobiCop/master/picture/5.png)
 
-![](https://raw.githubusercontent.com/nangongyibin7219/Android_MobiCop/master/picture/45.png)
+![](https://raw.githubusercontent.com/nangongyibin/Android_MobiCop/master/picture/45.png)
 
         private void closeAnimation() {
         //左侧图片的平移
@@ -3960,7 +3960,7 @@ PopuWindow的效果图：
 
 ###  1.35.2.	实现
 
-![](https://raw.githubusercontent.com/nangongyibin7219/Android_MobiCop/master/picture/46.png)
+![](https://raw.githubusercontent.com/nangongyibin/Android_MobiCop/master/picture/46.png)
 
 在应用启动的时候创建快捷图标，其实就是给桌面发送一个广播事件。
 
@@ -3997,7 +3997,7 @@ PopuWindow的效果图：
 修改工程配置文件如下。
 
 
-![](https://raw.githubusercontent.com/nangongyibin7219/Android_MobiCop/master/picture/47.png)
+![](https://raw.githubusercontent.com/nangongyibin/Android_MobiCop/master/picture/47.png)
 
 ###  1.36.3.	添加混淆文件相关代码
 
@@ -4007,7 +4007,7 @@ PopuWindow的效果图：
 
 前台进程状态栏效果图：
 
-![](https://raw.githubusercontent.com/nangongyibin7219/Android_MobiCop/master/picture/48.png)
+![](https://raw.githubusercontent.com/nangongyibin/Android_MobiCop/master/picture/48.png)
 
 ###  1.37.1.	需求
 
