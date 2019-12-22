@@ -3252,9 +3252,6 @@ PopuWindow的效果图：
 
 当程序被加锁时，程序条目向右边平移；当程序解锁时，程序条目向左边平移。
 
-![](https://raw.githubusercontent.com/nangongyibin/Android_MobiCop/master/picture/39.png)
-
-![](https://raw.githubusercontent.com/nangongyibin/Android_MobiCop/master/picture/40.png)
 
             //要执行动画的view,由开始位置,移动到离自身宽度(+)为100%那个坐标位置
         leftToRightAnimation = new TranslateAnimation(Animation.RELATIVE_TO_SELF, 0,
