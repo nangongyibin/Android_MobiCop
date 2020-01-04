@@ -3,8 +3,7 @@ package com.ngyb.mobicop.service;
 import android.app.Service;
 import android.content.Intent;
 import android.os.IBinder;
-
-import androidx.annotation.Nullable;
+import android.support.annotation.Nullable;
 
 /**
  * 作者：南宫燚滨

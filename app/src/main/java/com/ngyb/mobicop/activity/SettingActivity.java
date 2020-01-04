@@ -3,9 +3,8 @@ package com.ngyb.mobicop.activity;
 import android.content.Intent;
 import android.os.Build;
 import android.provider.Settings;
+import android.support.annotation.Nullable;
 import android.view.View;
-
-import androidx.annotation.Nullable;
 
 import com.ngyb.dialogsummary.CustomerDialog;
 import com.ngyb.mobicop.R;

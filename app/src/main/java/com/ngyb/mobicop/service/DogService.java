@@ -12,9 +12,8 @@ import android.content.IntentFilter;
 import android.net.Uri;
 import android.os.Build;
 import android.os.IBinder;
+import android.support.annotation.Nullable;
 import android.util.Log;
-
-import androidx.annotation.Nullable;
 
 import com.ngyb.mobicop.activity.InterceptetActivity;
 import com.ngyb.mobicop.constant.Constant;

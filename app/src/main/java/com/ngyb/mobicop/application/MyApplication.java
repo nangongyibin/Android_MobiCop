@@ -2,8 +2,7 @@ package com.ngyb.mobicop.application;
 
 import android.app.Application;
 import android.os.Environment;
-
-import androidx.annotation.NonNull;
+import android.support.annotation.NonNull;
 
 import java.io.File;
 import java.io.FileNotFoundException;
